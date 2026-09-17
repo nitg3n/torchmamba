@@ -1,5 +1,10 @@
 # TorchMamba
 
+[![PyPI](https://img.shields.io/pypi/v/torchmamba)](https://pypi.org/project/torchmamba/)
+[![CI](https://github.com/nitg3n/torchmamba/actions/workflows/tests.yml/badge.svg)](https://github.com/nitg3n/torchmamba/actions/workflows/tests.yml)
+[![Python](https://img.shields.io/pypi/pyversions/torchmamba)](https://pypi.org/project/torchmamba/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Clean, numerically self-consistent **PyTorch reference kernels** for Mamba-1
 (S6), Mamba-2 (SSD), Mamba-3 SISO, and Mamba-3 MIMO — written directly from the
 papers, not ported from optimized kernels.
