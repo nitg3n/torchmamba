@@ -16,7 +16,6 @@ from torchmamba.mamba3.siso_block import Mamba3SisoBlock, Mamba3SisoCache
 from torchmamba.mamba3.siso_core import trap_rope_loop, trap_rope_matrix
 
 __all__ = [
-    "main",
     "Mamba1Block",
     "Mamba1Cache",
     "Mamba2Block",
@@ -36,7 +35,3 @@ __all__ = [
     "mimo_chunkwise",
     "mimo_as_r2_sisos",
 ]
-
-
-def main() -> None:
-    print("Hello from torchmamba!")

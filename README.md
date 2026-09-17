@@ -40,12 +40,6 @@ cd torchmamba
 uv sync              # creates .venv, installs torch + package
 ```
 
-From PyPI (once published):
-
-```bash
-pip install torchmamba
-```
-
 ## Quickstart
 
 Block-level — `forward` equals `prefill` + stepwise `step` decode for every model:
@@ -135,7 +129,7 @@ torchmamba/
 ├── pyproject.toml
 ├── uv.lock
 ├── src/torchmamba/
-│   ├── __init__.py           # top-level re-exports (19 symbols)
+│   ├── __init__.py           # top-level re-exports (18 symbols)
 │   ├── core/                 # policy, discretize, segsum, conv, norms, rope
 │   ├── mamba1/               # scan loop/matrix + block
 │   ├── mamba2/               # recurrent/quadratic/chunkwise/step + block
