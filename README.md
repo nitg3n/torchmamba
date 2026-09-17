@@ -39,6 +39,12 @@ runs, not a numerical coincidence).
 ## Install
 
 ```bash
+pip install torchmamba
+```
+
+From source (dev):
+
+```bash
 git clone https://github.com/nitg3n/torchmamba.git
 cd torchmamba
 uv sync              # creates .venv, installs torch + package

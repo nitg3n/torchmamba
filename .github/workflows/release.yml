@@ -1,0 +1,60 @@
+name: release
+
+# Trusted publishing (OIDC) — no API tokens.
+# One-time setup, in order:
+#   1. Push + make the GitHub repo public.
+#   2. Create the PyPI project `torchmamba` (upload 0.1.0 once manually OR
+#      reserve the name; trusted publisher needs an existing project unless
+#      using "pending publishers").
+#   3. PyPI → project Settings → Publishing → Add publisher:
+#        owner: nitg3n, repo: torchmamba, workflow: release.yml,
+#        environment: pypi
+#   4. GitHub → repo Settings → Environments → New environment `pypi`
+#      (optional reviewers for manual approval).
+# Afterwards: push a tag `vX.Y.Z` matching pyproject version → build+publish.
+# TestPyPI dry run: `gh workflow run release.yml -f testpypi=true`
+#   (needs a `testpypi` environment + test.pypi.org publisher instead).
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      testpypi:
+        description: "Publish to TestPyPI instead of PyPI"
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - run: uv sync --locked --group dev
+      - run: uv run pytest -q
+      - run: uv build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: ${{ (github.event.inputs.testpypi == 'true') && 'testpypi' || 'pypi' }}
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: ${{ (github.event.inputs.testpypi == 'true') && 'https://test.pypi.org/legacy/' || '' }}
+          verbose: true

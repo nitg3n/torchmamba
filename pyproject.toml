@@ -4,9 +4,13 @@ version = "0.1.0"
 description = "Clean PyTorch reference kernels for Mamba-1/2/3 (S6, SSD, SISO, MIMO) — parity with paper math"
 readme = "README.md"
 requires-python = ">=3.12"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
 keywords = ["mamba", "state-space-models", "ssm", "pytorch", "reference"]
 authors = [
+    { name = "Jaeha Han", email = "jay@nitg3n.xyz" }
+]
+maintainers = [
     { name = "Jaeha Han", email = "jay@nitg3n.xyz" }
 ]
 dependencies = [
@@ -16,11 +20,15 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/nitg3n/torchmamba"
 Repository = "https://github.com/nitg3n/torchmamba"
+Documentation = "https://github.com/nitg3n/torchmamba#readme"
+Changelog = "https://github.com/nitg3n/torchmamba/releases"
 Issues = "https://github.com/nitg3n/torchmamba/issues"
 
 [dependency-groups]
 dev = [
     "pytest>=9.1.1",
+    "build>=1.0.0",
+    "twine>=6.0.0",
 ]
 
 [build-system]
