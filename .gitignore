@@ -1,10 +1,67 @@
-# Python-generated files
+# ---> Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
 build/
+develop-eggs/
 dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
 wheels/
-*.egg-info
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
 # Virtual environments
+.env
 .venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ---> pytest / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+htmlcov/
+nosetests.xml
+test-results/
+
+# ---> Jupyter (paranoia; none in repo)
+.ipynb_checkpoints
+
+# ---> Editors / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ---> Local session artifacts (explicitly requested/needed only)
+local/
+*.log
+
+# ---> Internal research docs (kept locally, never published)
+# math-spec: paper-faithful derivation notes; papers: vendored PDFs;
+# scripts: scratch verification helpers. Untracked by design.
+docs/
+scripts/
