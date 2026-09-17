@@ -1,5 +1,7 @@
 """TorchMamba: clean PyTorch reference kernels for Mamba-1/2/3."""
 
+__version__ = "0.1.1"
+
 from torchmamba.mamba1.block import Mamba1Block, Mamba1Cache
 from torchmamba.mamba1.core import selective_scan_loop, selective_scan_matrix
 from torchmamba.mamba2.block import Mamba2Block
