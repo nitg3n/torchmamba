@@ -1,6 +1,6 @@
 [project]
 name = "torchmamba"
-version = "0.1.1"
+version = "0.1.2"
 description = "Clean PyTorch reference kernels for Mamba-1/2/3 (S6, SSD, SISO, MIMO) — parity with paper math"
 readme = "README.md"
 requires-python = ">=3.12"
